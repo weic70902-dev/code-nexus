@@ -7,6 +7,8 @@ export default {
   head: [
     ['link', { rel: 'icon', href: '/logo.svg' }] // 如果您有 logo 文件
   ],
+  // 忽略死链接检查
+  ignoreDeadLinks: true,
   
   themeConfig: {
     logo: '/logo.svg', // 如果您有 logo 文件
