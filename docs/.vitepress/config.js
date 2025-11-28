@@ -37,7 +37,13 @@ export default {
           text: '实用工具',
           items: [
             { text: 'JSON 格式化', link: '/tools/json-formatter' },
-            { text: 'Base64 编解码', link: '/tools/base64-converter' }
+            { text: 'JSON 验证', link: '/tools/json-validator' },
+            { text: 'Base64 编解码', link: '/tools/base64-converter' },
+            { text: 'URL 编解码', link: '/tools/url-converter' },
+            { text: '时间戳转换', link: '/tools/timestamp-converter' },
+            { text: '时区转换', link: '/tools/timezone-converter' },
+            { text: '正则表达式测试', link: '/tools/regex-tester' },
+            { text: '哈希计算', link: '/tools/hash-calculator' }
           ]
         }
       ]
