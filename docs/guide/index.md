@@ -1,10 +1,17 @@
-# 指南
+# 指南简介
 
-欢迎阅读 Code Nexus 指南！
+欢迎来到 Code Nexus 文档中心！
 
-## 目录
+## 关于 Code Nexus
 
-- [介绍](/)
-- [快速开始](/guide/quick-start)
-- [API 参考](/reference/api)
-- [配置说明](/reference/config)
+Code Nexus 是一个集文档、工具集与学习资源于一体的中央枢纽，旨在为开发者提供一站式的技术支持。
+
+## 如何使用本文档
+
+- **新手入门**：从[开始使用](./getting-started)部分了解如何快速上手
+- **工具集**：访问[工具集](../tools/)部分获取实用的在线工具
+- **学习资源**：查看[学习资源](../resources/)部分获取丰富的学习材料
+
+## 反馈与贡献
+
+如果您发现任何问题或有任何建议，请在 GitHub 上提交 Issue 或 Pull Request。
