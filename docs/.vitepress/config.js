@@ -18,7 +18,8 @@ export default {
     nav: [
       { text: '📚 文档中心', link: '/guide/' },
       { text: '🛠️ 工具集', link: '/tools/' },
-      { text: '🎓 学习资源', link: '/resources/' }
+      { text: '🎓 学习资源', link: '/resources/' },
+      { text: '🌐 HTML 教程', link: '/html/' }
     ],
 
     // 侧边栏配置示例
@@ -44,6 +45,18 @@ export default {
             { text: '时区转换', link: '/tools/timezone-converter' },
             { text: '正则表达式测试', link: '/tools/regex-tester' },
             { text: '哈希计算', link: '/tools/hash-calculator' }
+          ]
+        }
+      ],
+      '/html/': [
+        {
+          text: 'HTML 教程',
+          items: [
+            { text: '简介', link: '/html/index' },
+            { text: 'HTML 基础', link: '/html/basics' },
+            { text: 'HTML 表单', link: '/html/forms' },
+            { text: 'HTML5 新特性', link: '/html/html5' },
+            { text: '最佳实践', link: '/html/best-practices' }
           ]
         }
       ]
