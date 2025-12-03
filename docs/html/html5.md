@@ -46,6 +46,16 @@ HTML5 引入了新的语义化标签，使页面结构更加清晰：
 - `<aside>`：侧边栏内容
 - `<footer>`：页面或章节的底部
 - `<figure>` 和 `<figcaption>`：媒体内容及其标题
+- `<time>`：日期或时间
+- `<mark>`：高亮文本
+- `<details>` 和 `<summary>`：可展开的详情信息
+- `<dialog>`：对话框
+- `<progress>`：进度条
+- `<meter>`：度量衡标尺
+- `<output>`：计算结果输出
+- `<data>`：机器可读的翻译内容
+- `<template>`：模板内容
+- `<slot>`：Web Components 插槽
 
 ### 多媒体元素
 
@@ -59,6 +69,13 @@ HTML5 原生支持音频和视频播放：
     <source src="audio.ogg" type="audio/ogg">
     您的浏览器不支持 audio 标签。
 </audio>
+
+<!-- 带有更多属性的音频 -->
+<audio controls preload="none" loop muted>
+    <source src="audio.mp3" type="audio/mpeg">
+    <track kind="captions" src="captions.vtt" srclang="zh" label="中文">
+    您的浏览器不支持 audio 标签。
+</audio>
 ```
 
 #### 视频
@@ -69,6 +86,19 @@ HTML5 原生支持音频和视频播放：
     <source src="movie.ogg" type="video/ogg">
     您的浏览器不支持 video 标签。
 </video>
+
+<!-- 带有更多属性的视频 -->
+<video width="320" height="240" controls poster="poster.jpg" preload="metadata" loop autoplay muted>
+    <source src="movie.mp4" type="video/mp4">
+    <source src="movie.webm" type="video/webm">
+    <track kind="subtitles" src="subtitles_en.vtt" srclang="en" label="English">
+    <track kind="subtitles" src="subtitles_zh.vtt" srclang="zh" label="中文" default>
+    您的浏览器不支持 video 标签。
+</video>
+
+<!-- 嵌入 YouTube 视频 -->
+<iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" 
+        frameborder="0" allowfullscreen></iframe>
 ```
 
 ### Canvas 绘图
@@ -103,6 +133,16 @@ const username = localStorage.getItem('username');
 
 // 删除数据
 localStorage.removeItem('username');
+
+// 清空所有数据
+localStorage.clear();
+
+// 存储对象
+const user = {name: 'John', age: 30};
+localStorage.setItem('user', JSON.stringify(user));
+
+// 获取对象
+const storedUser = JSON.parse(localStorage.getItem('user'));
 ```
 
 #### sessionStorage
@@ -113,7 +153,22 @@ sessionStorage.setItem('theme', 'dark');
 
 // 获取数据
 const theme = sessionStorage.getItem('theme');
+
+// 删除数据
+sessionStorage.removeItem('theme');
+
+// 清空所有数据
+sessionStorage.clear();
 ```
+
+#### Cookie vs Web Storage
+
+| 特性 | Cookie | localStorage | sessionStorage |
+|------|--------|--------------|----------------|
+| 存储大小 | 4KB | 5-10MB | 5-10MB |
+| 生命周期 | 手动设置过期时间 | 持久存储 | 会话结束清除 |
+| 发送至服务器 | 每次请求都会发送 | 仅客户端 | 仅客户端 |
+| 访问方式 | document.cookie | window.localStorage | window.sessionStorage |
 
 ## 新的表单元素和属性
 
@@ -126,11 +181,27 @@ HTML5 为表单增加了许多新的输入类型和属性：
 <input type="number" min="0" max="100" placeholder="请输入数字">
 <input type="date" placeholder="请选择日期">
 <input type="color" placeholder="请选择颜色">
+<input type="range" min="0" max="100" value="50">
+<input type="datetime-local" placeholder="请选择日期和时间">
+<input type="month" placeholder="请选择月份">
+<input type="week" placeholder="请选择周">
+<input type="time" placeholder="请选择时间">
+<input type="search" placeholder="搜索...">
 
 <!-- 表单属性 -->
 <input type="text" required placeholder="必填字段">
 <input type="text" autofocus placeholder="自动获得焦点">
 <input type="text" autocomplete="off" placeholder="关闭自动完成">
+<input type="text" placeholder="输入提示" list="suggestions">
+<datalist id="suggestions">
+    <option value="选项1">
+    <option value="选项2">
+</datalist>
+
+<!-- 新的表单元素 -->
+<output name="result" for="num1 num2">0</output>
+<meter value="70" min="0" max="100" low="30" high="80" optimum="90">70%</meter>
+<progress value="70" max="100">70%</progress>
 ```
 
 ## 地理定位

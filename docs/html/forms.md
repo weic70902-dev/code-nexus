@@ -30,6 +30,17 @@
 
 <!-- 多行文本输入框 -->
 <textarea name="message" rows="5" cols="30" placeholder="请输入您的留言"></textarea>
+
+<!-- 其他文本输入类型 -->
+<input type="email" name="email" placeholder="请输入邮箱地址">
+<input type="url" name="website" placeholder="请输入网址">
+<input type="tel" name="phone" placeholder="请输入电话号码">
+<input type="search" name="query" placeholder="搜索...">
+<input type="number" name="quantity" min="1" max="100" placeholder="数量">
+
+<!-- 带有更多属性的输入框 -->
+<input type="text" name="fullname" placeholder="请输入姓名" 
+       minlength="2" maxlength="50" required>
 ```
 
 ### 选择框
@@ -53,6 +64,34 @@
     <option value="us">美国</option>
     <option value="uk">英国</option>
 </select>
+
+<!-- 带optgroup的下拉选择框 -->
+<select name="cars">
+    <optgroup label="德国品牌">
+        <option value="bmw">宝马</option>
+        <option value="audi">奥迪</option>
+    </optgroup>
+    <optgroup label="日本品牌">
+        <option value="toyota">丰田</option>
+        <option value="honda">本田</option>
+    </optgroup>
+</select>
+
+<!-- 多选下拉框 -->
+<select name="skills" multiple>
+    <option value="html">HTML</option>
+    <option value="css">CSS</option>
+    <option value="js">JavaScript</option>
+</select>
+
+<!-- 数据列表 -->
+<input list="browsers" name="browser">
+<datalist id="browsers">
+    <option value="Chrome">
+    <option value="Firefox">
+    <option value="Safari">
+    <option value="Edge">
+</datalist>
 ```
 
 ### 按钮
@@ -69,6 +108,14 @@
 
 <!-- 使用 button 标签 -->
 <button type="submit">提交表单</button>
+
+<!-- 带有更多属性的按钮 -->
+<button type="button" onclick="alert('Hello')" disabled>禁用按钮</button>
+<button type="submit" formaction="/save">保存</button>
+<button type="submit" formenctype="multipart/form-data">上传文件</button>
+
+<!-- 图像按钮 -->
+<input type="image" src="submit-icon.png" alt="提交">
 ```
 
 ## 表单验证
@@ -87,6 +134,17 @@ HTML5 提供了内置的表单验证功能：
 
 <!-- 正则表达式验证 -->
 <input type="text" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="格式：123-456-7890">
+
+<!-- 其他验证属性 -->
+<input type="text" name="zipcode" minlength="5" maxlength="10" placeholder="邮政编码">
+<input type="password" name="password" minlength="8" placeholder="密码至少8位">
+<input type="url" name="website" placeholder="网站地址">
+<input type="file" name="avatar" accept="image/*" placeholder="选择头像">
+<input type="text" name="color" pattern="^#[0-9A-F]{6}$" placeholder="十六进制颜色值">
+
+<!-- 自定义验证消息 -->
+<input type="text" name="custom" required oninvalid="this.setCustomValidity('请填写此字段')" 
+       oninput="this.setCustomValidity('')">
 ```
 
 ## 表单组织
