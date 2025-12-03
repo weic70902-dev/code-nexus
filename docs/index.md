@@ -101,27 +101,4 @@ layout: home
       padding: 1rem;
     }
   }
-</style>r: #64748b;
-    margin-bottom: 2rem;
-  }
-
-  .VPHome .main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-  }
-
-  @media (max-width: 768px) {
-    .VPHome h1 {
-      font-size: 2rem;
-    }
-    
-    .VPHome .tagline {
-      font-size: 1.2rem;
-    }
-    
-    .VPHome .main {
-      padding: 1rem;
-    }
-  }
 </style>
