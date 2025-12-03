@@ -5,7 +5,7 @@ Code Nexus 收集了丰富的学习资源，帮助开发者不断提升技能。
 ## 编程语言
 
 ### JavaScript/TypeScript
-- [现代 JavaScript 教程](./js-tutorials) - 从基础到高级的 JavaScript 学习指南
+- [JavaScript 和 TypeScript 教程](../javascript/) - 从基础到进阶的 JavaScript 和 TypeScript 学习指南
 - TypeScript 入门 - TypeScript 基础知识和最佳实践
 
 ### Python

@@ -19,7 +19,8 @@ export default {
       { text: '📚 文档中心', link: '/guide/' },
       { text: '🛠️ 工具集', link: '/tools/' },
       { text: '🎓 学习资源', link: '/resources/' },
-      { text: '🌐 HTML 教程', link: '/html/' }
+      { text: '🌐 HTML 教程', link: '/html/' },
+      { text: '💻 JS/TS 教程', link: '/javascript/' }
     ],
 
     // 侧边栏配置示例
@@ -58,6 +59,21 @@ export default {
             { text: 'HTML5 新特性', link: '/html/html5' },
             { text: 'HTML APIs 和 DOM 操作', link: '/html/apis' },
             { text: '最佳实践', link: '/html/best-practices' }
+          ]
+        }
+      ],
+      '/javascript/': [
+        {
+          text: 'JavaScript 和 TypeScript 教程',
+          items: [
+            { text: '简介', link: '/javascript/index' },
+            { text: 'JavaScript 基础', link: '/javascript/js-basics' },
+            { text: 'JavaScript 进阶', link: '/javascript/js-advanced' },
+            { text: 'ES6+ 新特性', link: '/javascript/es6-plus' },
+            { text: 'DOM 操作', link: '/javascript/dom' },
+            { text: 'TypeScript 基础', link: '/javascript/ts-basics' },
+            { text: 'TypeScript 进阶', link: '/javascript/ts-advanced' },
+            { text: '最佳实践', link: '/javascript/best-practices' }
           ]
         }
       ]
