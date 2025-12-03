@@ -25,6 +25,15 @@ layout: home
 
   <div style="border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.5rem; transition: box-shadow 0.3s;">
     <h3 style="display: flex; align-items: center; margin-top: 0;">
+      <span style="font-size: 1.5rem; margin-right: 0.5rem;">🐹</span>
+      Go 语言
+    </h3>
+    <p>从入门到进阶的 Go 语言学习指南，涵盖并发编程和微服务。</p>
+    <a href="/go/" style="color: #4f46e5; text-decoration: none; font-weight: 500;">立即学习 →</a>
+  </div>
+
+  <div style="border: 1px solid #e2e8f0; border-radius: 8px; padding: 1.5rem; transition: box-shadow 0.3s;">
+    <h3 style="display: flex; align-items: center; margin-top: 0;">
       <span style="font-size: 1.5rem; margin-right: 0.5rem;">🛠️</span>
       工具集
     </h3>
@@ -70,6 +79,29 @@ layout: home
     font-size: 1.5rem;
     text-align: center;
     color: #64748b;
+    margin-bottom: 2rem;
+  }
+
+  .VPHome .main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .VPHome h1 {
+      font-size: 2rem;
+    }
+    
+    .VPHome .tagline {
+      font-size: 1.2rem;
+    }
+    
+    .VPHome .main {
+      padding: 1rem;
+    }
+  }
+</style>r: #64748b;
     margin-bottom: 2rem;
   }
 

@@ -18,6 +18,7 @@ export default {
     nav: [
       { text: '📚 HTML 教程', link: '/html/' },
       { text: '💻 JS/TS 教程', link: '/javascript/' },
+      { text: '🐹 Go 语言', link: '/go/' },
       { text: '🛠️ 工具集', link: '/tools/' },
       { text: '🎓 学习资源', link: '/resources/' }
     ],
@@ -73,6 +74,22 @@ export default {
             { text: 'TypeScript 基础', link: '/javascript/ts-basics' },
             { text: 'TypeScript 进阶', link: '/javascript/ts-advanced' },
             { text: '最佳实践', link: '/javascript/best-practices' }
+          ]
+        }
+      ],
+      '/go/': [
+        {
+          text: 'Go 语言教程',
+          items: [
+            { text: '简介', link: '/go/index' },
+            { text: 'Go 语言基础', link: '/go/basics' },
+            { text: 'Go 语言进阶', link: '/go/advanced' },
+            { text: 'Go Web 编程', link: '/go/web' },
+            { text: 'Go 微服务', link: '/go/microservices' },
+            { text: 'Go 包管理和依赖注入', link: '/go/dependencies' },
+            { text: 'Go 测试策略', link: '/go/testing' },
+            { text: 'Go 部署和运维', link: '/go/deployment' },
+            { text: 'Go 最佳实践', link: '/go/best-practices' }
           ]
         }
       ]
