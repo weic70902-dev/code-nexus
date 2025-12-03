@@ -16,11 +16,10 @@ export default {
     
     // 导航栏配置
     nav: [
-      { text: '📚 文档中心', link: '/guide/' },
+      { text: '📚 HTML 教程', link: '/html/' },
+      { text: '💻 JS/TS 教程', link: '/javascript/' },
       { text: '🛠️ 工具集', link: '/tools/' },
-      { text: '🎓 学习资源', link: '/resources/' },
-      { text: '🌐 HTML 教程', link: '/html/' },
-      { text: '💻 JS/TS 教程', link: '/javascript/' }
+      { text: '🎓 学习资源', link: '/resources/' }
     ],
 
     // 侧边栏配置示例
