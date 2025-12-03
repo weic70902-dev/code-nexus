@@ -2,20 +2,6 @@
 layout: home
 ---
 
-# Code Nexus
-
-欢迎来到 Code Nexus！
-
-Code Nexus 是一个文档、工具集与学习资源的中央枢纽，致力于为开发者提供一站式的技术支持。
-
-<div style="display: flex; justify-content: center; margin: 2rem 0;">
-  <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 2rem; border-radius: 12px; color: white; text-align: center; box-shadow: 0 8px 32px rgba(0,0,0,0.1);">
-    <h2 style="margin: 0 0 1rem 0;">开启您的技术之旅</h2>
-    <p style="margin: 0 0 1.5rem 0; opacity: 0.9;">探索全面的文档、实用工具和丰富的学习资源</p>
-    <a href="/html/" style="background: white; color: #667eea; padding: 0.75rem 1.5rem; border-radius: 6px; text-decoration: none; font-weight: bold; transition: transform 0.2s;">开始学习</a>
-  </div>
-</div>
-
 ## 核心模块
 
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 2rem 0;">
