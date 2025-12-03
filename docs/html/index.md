@@ -7,6 +7,7 @@
 - [HTML 基础](./basics) - HTML 基本语法、标签和结构
 - [HTML 表单](./forms) - 表单元素和验证
 - [HTML5 新特性](./html5) - HTML5 语义化标签、多媒体元素等
+- [HTML APIs 和 DOM 操作](./apis) - DOM 操作、事件处理、API 使用
 - [最佳实践](./best-practices) - HTML 编写规范和优化技巧
 
 ## 学习路径建议

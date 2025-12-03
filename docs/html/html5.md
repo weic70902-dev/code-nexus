@@ -200,5 +200,5 @@ socket.onmessage = function(event) {
 ## 下一步
 
 接下来您可以学习：
+- [HTML APIs 和 DOM 操作](./apis) - 学习 DOM 操作和事件处理
 - [最佳实践](./best-practices) - 学习 HTML 编写的最佳实践
-- [HTML 表单](./forms) - 深入学习表单设计和验证

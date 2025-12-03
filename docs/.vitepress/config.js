@@ -56,6 +56,7 @@ export default {
             { text: 'HTML 基础', link: '/html/basics' },
             { text: 'HTML 表单', link: '/html/forms' },
             { text: 'HTML5 新特性', link: '/html/html5' },
+            { text: 'HTML APIs 和 DOM 操作', link: '/html/apis' },
             { text: '最佳实践', link: '/html/best-practices' }
           ]
         }
