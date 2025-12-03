@@ -130,6 +130,38 @@ function handleClick(event) {
 button.addEventListener('click', handleClick);
 // 移除监听器
 button.removeEventListener('click', handleClick);
+
+// 事件对象属性和方法
+button.addEventListener('click', function(event) {
+    console.log('事件类型:', event.type);
+    console.log('目标元素:', event.target);
+    console.log('当前目标:', event.currentTarget);
+    console.log('鼠标坐标:', event.clientX, event.clientY);
+    console.log('按键代码:', event.keyCode);
+    
+    // 阻止默认行为
+    event.preventDefault();
+    
+    // 阻止事件冒泡
+    event.stopPropagation();
+    
+    // 立即阻止事件冒泡和后续事件
+    event.stopImmediatePropagation();
+});
+
+// 事件捕获和冒泡
+// 捕获阶段
+button.addEventListener('click', handler, true);
+// 冒泡阶段（默认）
+button.addEventListener('click', handler, false);
+// 或者使用对象形式
+button.addEventListener('click', handler, { capture: true });
+
+// 一次性事件监听器
+button.addEventListener('click', handler, { once: true });
+
+// 被动事件监听器（提升性能）
+button.addEventListener('touchstart', handler, { passive: true });
 ```
 
 ### 常见事件类型
@@ -144,6 +176,9 @@ element.addEventListener('mousemove', handler);  // 鼠标移动
 element.addEventListener('mousedown', handler);  // 鼠标按下
 element.addEventListener('mouseup', handler);    // 鼠标释放
 element.addEventListener('contextmenu', handler); // 右键菜单
+element.addEventListener('mouseenter', handler); // 鼠标进入
+element.addEventListener('mouseleave', handler); // 鼠标离开
+element.addEventListener('wheel', handler);      // 鼠标滚轮
 
 // 键盘事件
 input.addEventListener('keydown', handler);      // 按键按下
@@ -156,17 +191,59 @@ input.addEventListener('change', handler);       // 值改变
 input.addEventListener('focus', handler);        // 获得焦点
 input.addEventListener('blur', handler);         // 失去焦点
 input.addEventListener('input', handler);        // 输入时触发
+input.addEventListener('select', handler);       // 文本被选中
+input.addEventListener('reset', handler);        // 表单重置
 
 // 页面事件
 document.addEventListener('DOMContentLoaded', handler); // DOM 加载完成
 window.addEventListener('load', handler);        // 页面完全加载
 document.addEventListener('scroll', handler);    // 页面滚动
 window.addEventListener('resize', handler);      // 窗口大小改变
+window.addEventListener('beforeunload', handler); // 页面即将卸载
+window.addEventListener('unload', handler);      // 页面卸载
+window.addEventListener('error', handler);       // JavaScript 错误
+window.addEventListener('online', handler);      // 浏览器上线
+window.addEventListener('offline', handler);     // 浏览器离线
 
 // 触摸事件
 element.addEventListener('touchstart', handler); // 触摸开始
 element.addEventListener('touchmove', handler);  // 触摸移动
 element.addEventListener('touchend', handler);   // 触摸结束
+element.addEventListener('touchcancel', handler); // 触摸中断
+
+// 剪贴板事件
+element.addEventListener('copy', handler);       // 复制
+element.addEventListener('cut', handler);        // 剪切
+element.addEventListener('paste', handler);      // 粘贴
+
+// 拖放事件
+element.addEventListener('drag', handler);       // 拖拽
+element.addEventListener('dragstart', handler);  // 开始拖拽
+element.addEventListener('dragend', handler);    // 结束拖拽
+element.addEventListener('dragover', handler);   // 拖拽经过
+element.addEventListener('dragenter', handler);  // 拖拽进入
+element.addEventListener('dragleave', handler);  // 拖拽离开
+element.addEventListener('drop', handler);       // 放置
+
+// 媒体事件
+video.addEventListener('play', handler);         // 开始播放
+video.addEventListener('pause', handler);        // 暂停播放
+video.addEventListener('ended', handler);        // 播放结束
+video.addEventListener('volumechange', handler); // 音量改变
+
+// 动画事件
+element.addEventListener('animationstart', handler);  // 动画开始
+element.addEventListener('animationend', handler);    // 动画结束
+element.addEventListener('animationiteration', handler); // 动画重复
+
+// 过渡事件
+element.addEventListener('transitionstart', handler); // 过渡开始
+element.addEventListener('transitionend', handler);   // 过渡结束
+
+// 其他事件
+element.addEventListener('toggle', handler);     // details 元素切换
+element.addEventListener('load', handler);       // 资源加载完成
+element.addEventListener('error', handler);      // 资源加载失败
 ```
 
 ## 创建和操作元素
@@ -537,6 +614,65 @@ element.removeEventListener('click', handler);
 const timer = setTimeout(() => {}, 1000);
 // 使用完毕后清理
 clearTimeout(timer);
+```
+
+### 4. 优化事件处理性能
+
+```javascript
+// 节流（Throttle）- 限制函数执行频率
+function throttle(func, delay) {
+    let timeoutId;
+    let lastExecTime = 0;
+    return function() {
+        const currentTime = Date.now();
+        if (currentTime - lastExecTime > delay) {
+            func.apply(this, arguments);
+            lastExecTime = currentTime;
+        }
+    };
+}
+
+// 防抖（Debounce）- 延迟执行函数
+function debounce(func, delay) {
+    let timeoutId;
+    return function() {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => func.apply(this, arguments), delay);
+    };
+}
+
+// 使用节流处理滚动事件
+window.addEventListener('scroll', throttle(function() {
+    console.log('滚动事件');
+}, 100));
+
+// 使用防抖处理输入事件
+input.addEventListener('input', debounce(function() {
+    console.log('输入事件');
+}, 300));
+```
+
+### 5. 正确处理事件对象
+
+```javascript
+// 避免在循环中创建函数
+const buttons = document.querySelectorAll('.button');
+
+// 不好的做法
+buttons.forEach(button => {
+    button.addEventListener('click', function() {
+        // 每次循环都创建新函数
+    });
+});
+
+// 推荐的做法
+function handleButtonClick(event) {
+    console.log('按钮被点击');
+}
+
+buttons.forEach(button => {
+    button.addEventListener('click', handleButtonClick);
+});
 ```
 
 ## 实践练习

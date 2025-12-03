@@ -16,6 +16,17 @@
 
 - `action`：表单提交的目标 URL
 - `method`：HTTP 方法（GET 或 POST）
+- `enctype`：表单数据的编码类型
+- `target`：提交后在哪里显示响应
+- `autocomplete`：是否启用自动完成功能
+- `novalidate`：提交时是否跳过验证
+- `accept-charset`：表单提交使用的字符编码
+
+### enctype 属性值
+
+- `application/x-www-form-urlencoded`：默认值，表单数据被编码为键值对
+- `multipart/form-data`：用于文件上传
+- `text/plain`：纯文本格式
 
 ## 输入元素
 
@@ -37,10 +48,31 @@
 <input type="tel" name="phone" placeholder="请输入电话号码">
 <input type="search" name="query" placeholder="搜索...">
 <input type="number" name="quantity" min="1" max="100" placeholder="数量">
+<input type="range" name="range" min="0" max="100" value="50">
+<input type="color" name="color" value="#ff0000">
+<input type="date" name="date" placeholder="请选择日期">
+<input type="time" name="time" placeholder="请选择时间">
+<input type="datetime-local" name="datetime" placeholder="请选择日期和时间">
+<input type="month" name="month" placeholder="请选择月份">
+<input type="week" name="week" placeholder="请选择周">
 
 <!-- 带有更多属性的输入框 -->
 <input type="text" name="fullname" placeholder="请输入姓名" 
        minlength="2" maxlength="50" required>
+
+<!-- 带有所有可能属性的输入框 -->
+<input type="text" name="complete" 
+       placeholder="提示文本" 
+       value="默认值" 
+       minlength="2" 
+       maxlength="50" 
+       required 
+       disabled 
+       readonly 
+       autofocus 
+       autocomplete="off" 
+       pattern="[A-Za-z]+" 
+       title="只能输入字母">
 ```
 
 ### 选择框
@@ -92,6 +124,22 @@
     <option value="Safari">
     <option value="Edge">
 </datalist>
+
+<!-- 带有更多属性的选择框 -->
+<select name="country" required disabled>
+    <option value="">请选择国家</option>
+    <option value="cn" selected>中国</option>
+    <option value="us">美国</option>
+    <option value="uk">英国</option>
+</select>
+
+<!-- 大小和多选属性 -->
+<select name="fruits" size="3" multiple>
+    <option value="apple">苹果</option>
+    <option value="banana">香蕉</option>
+    <option value="orange">橙子</option>
+    <option value="grape">葡萄</option>
+</select>
 ```
 
 ### 按钮
@@ -116,6 +164,26 @@
 
 <!-- 图像按钮 -->
 <input type="image" src="submit-icon.png" alt="提交">
+
+<!-- 不同类型的按钮 -->
+<button type="button">普通按钮</button>
+<button type="submit">提交按钮</button>
+<button type="reset">重置按钮</button>
+
+<!-- 带有更多属性的 button -->
+<button type="submit" 
+        name="action" 
+        value="save" 
+        disabled 
+        autofocus 
+        form="form1" 
+        formaction="/submit" 
+        formenctype="application/x-www-form-urlencoded" 
+        formmethod="post" 
+        formnovalidate 
+        formtarget="_blank">
+    提交
+</button>
 ```
 
 ## 表单验证
@@ -142,9 +210,21 @@ HTML5 提供了内置的表单验证功能：
 <input type="file" name="avatar" accept="image/*" placeholder="选择头像">
 <input type="text" name="color" pattern="^#[0-9A-F]{6}$" placeholder="十六进制颜色值">
 
+<!-- 数字相关验证 -->
+<input type="number" name="score" min="0" max="100" step="0.1" placeholder="分数">
+<input type="range" name="rating" min="1" max="5" step="0.5" placeholder="评分">
+
 <!-- 自定义验证消息 -->
 <input type="text" name="custom" required oninvalid="this.setCustomValidity('请填写此字段')" 
        oninput="this.setCustomValidity('')">
+
+<!-- 多种验证组合 -->
+<input type="email" name="workEmail" 
+       required 
+       placeholder="请输入工作邮箱" 
+       pattern="^[a-zA-Z0-9._%+-]+@company\.com$" 
+       title="请输入公司邮箱地址"
+       minlength="10">
 ```
 
 ## 表单组织

@@ -56,6 +56,9 @@ HTML5 引入了新的语义化标签，使页面结构更加清晰：
 - `<data>`：机器可读的翻译内容
 - `<template>`：模板内容
 - `<slot>`：Web Components 插槽
+- `<ruby>`、`<rt>`、`<rp>`： ruby 注解
+- `<bdi>`：双向隔离文本
+- `<wbr>`：换行机会
 
 ### 多媒体元素
 
@@ -74,6 +77,19 @@ HTML5 原生支持音频和视频播放：
 <audio controls preload="none" loop muted>
     <source src="audio.mp3" type="audio/mpeg">
     <track kind="captions" src="captions.vtt" srclang="zh" label="中文">
+    您的浏览器不支持 audio 标签。
+</audio>
+
+<!-- 完整的音频示例 -->
+<audio controls 
+       autoplay 
+       loop 
+       muted 
+       preload="auto" 
+       crossorigin="anonymous">
+    <source src="audio.mp3" type="audio/mpeg">
+    <source src="audio.ogg" type="audio/ogg">
+    <track kind="subtitles" src="subtitles.vtt" srclang="zh" label="中文">
     您的浏览器不支持 audio 标签。
 </audio>
 ```
@@ -96,6 +112,22 @@ HTML5 原生支持音频和视频播放：
     您的浏览器不支持 video 标签。
 </video>
 
+<!-- 完整的视频示例 -->
+<video width="1280" height="720" 
+       controls 
+       autoplay 
+       loop 
+       muted 
+       poster="poster.jpg" 
+       preload="auto" 
+       crossorigin="anonymous">
+    <source src="movie.mp4" type="video/mp4">
+    <source src="movie.webm" type="video/webm">
+    <track kind="captions" src="captions_en.vtt" srclang="en" label="English" default>
+    <track kind="subtitles" src="subtitles_zh.vtt" srclang="zh" label="中文">
+    您的浏览器不支持 video 标签。
+</video>
+
 <!-- 嵌入 YouTube 视频 -->
 <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID" 
         frameborder="0" allowfullscreen></iframe>
@@ -115,8 +147,47 @@ const ctx = canvas.getContext('2d');
 // 绘制红色矩形
 ctx.fillStyle = '#FF0000';
 ctx.fillRect(0, 0, 150, 75);
+
+// 绘制蓝色边框矩形
+ctx.strokeStyle = '#0000FF';
+ctx.lineWidth = 2;
+ctx.strokeRect(10, 10, 100, 50);
+
+// 绘制圆形
+ctx.beginPath();
+ctx.arc(100, 50, 30, 0, 2 * Math.PI);
+ctx.fillStyle = '#00FF00';
+ctx.fill();
+
+// 绘制文本
+ctx.font = '20px Arial';
+ctx.fillStyle = '#000000';
+ctx.fillText('Hello Canvas', 10, 90);
+
+// 绘制线条
+ctx.beginPath();
+ctx.moveTo(0, 0);
+ctx.lineTo(200, 100);
+ctx.strokeStyle = '#FF00FF';
+ctx.lineWidth = 3;
+ctx.stroke();
 </script>
 ```
+
+#### Canvas 常用方法
+
+- `getContext('2d')`：获取 2D 绘图上下文
+- `fillRect(x, y, width, height)`：绘制填充矩形
+- `strokeRect(x, y, width, height)`：绘制边框矩形
+- `clearRect(x, y, width, height)`：清除矩形区域
+- `beginPath()`：开始绘制路径
+- `moveTo(x, y)`：移动到指定点
+- `lineTo(x, y)`：绘制直线到指定点
+- `arc(x, y, radius, startAngle, endAngle)`：绘制圆弧
+- `fill()`：填充当前路径
+- `stroke()`：绘制当前路径的边框
+- `fillText(text, x, y)`：绘制文本
+- `strokeText(text, x, y)`：绘制文本边框
 
 ### 本地存储
 

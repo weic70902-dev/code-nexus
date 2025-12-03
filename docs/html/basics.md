@@ -77,6 +77,13 @@ HTML 是一种标记语言，用于创建网页结构和内容。它使用一系
     <!-- 网站图标 -->
     <link rel="icon" type="image/png" href="/favicon.png">
     
+    <!-- 其他 link rel 值 -->
+    <link rel="stylesheet" href="print.css" media="print">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml">
+    <link rel="canonical" href="https://example.com/canonical-url">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preload" href="font.woff2" as="font" type="font/woff2" crossorigin>
+    
     <!-- 内联 CSS -->
     <style>
         body { font-family: Arial, sans-serif; }
@@ -86,6 +93,32 @@ HTML 是一种标记语言，用于创建网页结构和内容。它使用一系
     <script>
         console.log('页面加载');
     </script>
+    
+    <!-- 外部 JavaScript -->
+    <script src="script.js"></script>
+    
+    <!-- 异步加载脚本 -->
+    <script src="async-script.js" async></script>
+    
+    <!-- 延迟加载脚本 -->
+    <script src="defer-script.js" defer></script>
+    
+    <!-- 条件注释（仅 IE 支持） -->
+    <!--[if IE]>
+        <script src="ie-fix.js"></script>
+    <![endif]-->
+    
+    <!-- Open Graph 元数据（用于社交分享） -->
+    <meta property="og:title" content="页面标题">
+    <meta property="og:description" content="页面描述">
+    <meta property="og:image" content="https://example.com/image.jpg">
+    <meta property="og:url" content="https://example.com/page">
+    
+    <!-- Twitter Card 元数据 -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="页面标题">
+    <meta name="twitter:description" content="页面描述">
+    <meta name="twitter:image" content="https://example.com/image.jpg">
 </head>
 ```
 
