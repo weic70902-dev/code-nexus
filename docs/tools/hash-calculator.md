@@ -43,6 +43,41 @@ Hello, World!
 - **SHA1**: 0a0a9f2a6772942557ab5355d76af442f8f65e01
 - **SHA256**: dffd6021bb2bd5b0af676290809ec3a53191dd81c7f70a4b28688a362182986f
 
+### 文件校验示例
+```javascript
+// 验证下载文件的完整性
+const expectedHash = "dffd6021bb2bd5b0af676290809ec3a53191dd81c7f70a4b28688a362182986f";
+const fileHash = calculateFileHash(fileInput.files[0], "SHA256");
+
+if (fileHash === expectedHash) {
+    console.log("文件完整性校验通过");
+} else {
+    console.log("文件可能已被篡改");
+}
+```
+
+### 密码存储示例
+```javascript
+// 安全地存储用户密码
+const password = "userPassword123";
+const salt = generateSalt(); // 生成随机盐值
+const hashedPassword = sha256(password + salt);
+
+// 存储 hashedPassword 和 salt 到数据库
+storeUserCredentials(username, hashedPassword, salt);
+
+// 验证用户登录
+const storedHash = getStoredHash(username);
+const storedSalt = getStoredSalt(username);
+const inputHash = sha256(inputPassword + storedSalt);
+
+if (inputHash === storedHash) {
+    console.log("登录成功");
+} else {
+    console.log("密码错误");
+}
+```
+
 ## 注意事项
 
 - MD5 和 SHA1 已被认为不够安全，不建议用于密码存储

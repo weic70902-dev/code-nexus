@@ -37,6 +37,67 @@
 转换结果：2021-01-01 07:00:00
 ```
 
+### JavaScript 代码示例
+```javascript
+// 创建日期对象
+const date = new Date('2021-01-01T20:00:00+08:00'); // 北京时间
+console.log(date.toString()); // Fri Jan 01 2021 20:00:00 GMT+0800 (中国标准时间)
+
+// 转换为 UTC 时间
+console.log(date.toISOString()); // 2021-01-01T12:00:00.000Z
+
+// 转换为纽约时间
+const options = {
+  timeZone: 'America/New_York',
+  year: 'numeric',
+  month: '2-digit',
+  day: '2-digit',
+  hour: '2-digit',
+  minute: '2-digit',
+  second: '2-digit',
+  hour12: false
+};
+const nyTime = new Intl.DateTimeFormat('zh-CN', options).format(date);
+console.log(nyTime); // 2021/01/01 07:00:00
+
+// 获取时区偏移
+console.log(date.getTimezoneOffset()); // -480 (分钟)
+```
+
+### Python 代码示例
+```python
+from datetime import datetime
+import pytz
+
+# 创建带时区的日期时间对象
+beijing_tz = pytz.timezone('Asia/Shanghai')
+ny_tz = pytz.timezone('America/New_York')
+
+# 北京时间
+beijing_time = beijing_tz.localize(datetime(2021, 1, 1, 20, 0, 0))
+print(beijing_time) # 2021-01-01 20:00:00+08:00
+
+# 转换为纽约时间
+ny_time = beijing_time.astimezone(ny_tz)
+print(ny_time) # 2021-01-01 07:00:00-05:00
+
+# 获取时区信息
+print(beijing_time.tzname()) # CST
+print(ny_time.tzname()) # EST
+
+# UTC 时间转换
+utc_time = datetime(2021, 1, 1, 12, 0, 0, tzinfo=pytz.UTC)
+beijing_from_utc = utc_time.astimezone(beijing_tz)
+print(beijing_from_utc) # 2021-01-01 20:00:00+08:00
+```
+
+## 应用场景
+
+- **国际会议安排** - 将会议时间转换为参与者所在时区的时间
+- **跨国团队协作** - 统一不同时区成员的工作时间
+- **全球产品发布** - 确定产品在各地区上线的最佳时间
+- **旅行计划** - 计算出发地和目的地的时间差
+
 ## 注意事项
 
 - 夏令时会影响某些时区的时间转换
